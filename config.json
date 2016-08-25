@@ -1,0 +1,499 @@
+{
+    "Scenarios": [
+        { "Name": "60-40",
+            "Active": false,
+            "Type": "serial",
+            "ResultsFileName": "60-40.csv",
+            "Clients": "localhost",
+            "Servers": "localhost",
+            "LoadActions": ["600Mbit","800Mbit","1000Mbit","1200Mbit","1400Mbit","1600Mbit","1800Mbit"],
+            "Misc": "general"
+        },
+        { "Name": "test60-40",
+            "Active": true,
+            "Type": "serial",
+            "ResultsFileName": "test60-40.csv",
+            "Clients": "localhost",
+            "Servers": "localhost",
+            "LoadActions": ["600Mbit-short"],
+            "Misc": "general"
+        }
+    ],
+    "ClientProfiles": {
+        "localhost": {
+            "IPs": ["127.0.0.1"],
+            "Latency_ms": 0
+        }
+    },
+    "ServerProfiles": { 
+        "localhost": {
+            "IPs": ["127.0.0.1"],
+            "Hosts": ["127.0.0.1 http-srv"],
+            "LimitRateBytes": 0,
+            "Latency_ms": 0
+        }
+    },
+    "LoadActionProfiles": {
+        "600Mbit": {
+            "LoadTools": {
+                "curl-loader": ["360p80","240p81"]
+            },
+            "StatTools": {
+                "ping": "default",
+                "dstat": "default"
+            },
+            "RampUpTime_sec": 60,
+            "LoadTime_sec": 600
+        },
+        "600Mbit-short": {
+            "LoadTools": {
+                "curl-loader": ["360p80","240p81"]
+            },
+            "StatTools": {
+                "ping": "default",
+                "dstat": "default"
+            },
+            "RampUpTime_sec": 10,
+            "LoadTime_sec": 60
+        },
+        "800Mbit": {
+            "LoadTools": {
+                "curl-loader": ["480p80","320p81"]
+            },
+            "StatTools": {
+                "ping": "default",
+                "dstat": "default"
+            },
+            "RampUpTime_sec": 60,
+            "LoadTime_sec": 600
+        },
+        "1000Mbit": {
+            "LoadTools": {
+                "curl-loader": ["600p80","400p81"]
+            },
+            "StatTools": {
+                "ping": "default",
+                "dstat": "default"
+            },
+            "RampUpTime_sec": 60,
+            "LoadTime_sec": 600
+        },
+        "1200Mbit": {
+            "LoadTools": {
+                "curl-loader": ["720p80","480p81"]
+            },
+            "StatTools": {
+                "ping": "default",
+                "dstat": "default"
+            },
+            "RampUpTime_sec": 60,
+            "LoadTime_sec": 600
+        },
+        "1400Mbit": {
+            "LoadTools": {
+                "curl-loader": ["840p80","560p81"]
+            },
+            "StatTools": {
+                "ping": "default",
+                "dstat": "default"
+            },
+            "RampUpTime_sec": 60,
+            "LoadTime_sec": 600
+        },
+        "1600Mbit": {
+            "LoadTools": {
+                "curl-loader": ["960p80","640p81"]
+            },
+            "StatTools": {
+                "ping": "default",
+                "dstat": "default"
+            },
+            "RampUpTime_sec": 60,
+            "LoadTime_sec": 600
+        },
+        "1800Mbit": {
+            "LoadTools": {
+                "curl-loader": ["1080p80","720p81"]
+            },
+            "StatTools": {
+                "ping": "default",
+                "dstat": "default"
+            },
+            "RampUpTime_sec": 60,
+            "LoadTime_sec": 600
+        }
+    },
+    "CurlLoaderProfiles": {
+        "240p81": {
+            "CurlInstances": 1,
+            "SimUsers": 240,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv:81/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "320p81": {
+            "CurlInstances": 1,
+            "SimUsers": 320,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv:81/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "360p80": {
+            "CurlInstances": 2,
+            "SimUsers": 360,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "400p81": {
+            "CurlInstances": 1,
+            "SimUsers": 400,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv:81/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "480p80": {
+            "CurlInstances": 2,
+            "SimUsers": 480,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "480p81": {
+            "CurlInstances": 1,
+            "SimUsers": 480,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv:81/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "560p81": {
+            "CurlInstances": 1,
+            "SimUsers": 560,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv:81/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "600p80": {
+            "CurlInstances": 2,
+            "SimUsers": 600,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "600p81": {
+            "CurlInstances": 1,
+            "SimUsers": 600,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv:81/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "640p81": {
+            "CurlInstances": 1,
+            "SimUsers": 640,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv:81/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "720p80": {
+            "CurlInstances": 2,
+            "SimUsers": 720,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "720p81": {
+            "CurlInstances": 1,
+            "SimUsers": 720,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv:81/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "840p80": {
+            "CurlInstances": 2,
+            "SimUsers": 840,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "900p80": {
+            "CurlInstances": 2,
+            "SimUsers": 900,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "960p80": {
+            "CurlInstances": 2,
+            "SimUsers": 960,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        },
+        "1080p80": {
+            "CurlInstances": 2,
+            "SimUsers": 1080,
+            "IpAddrMin": 100,
+            "IpAddrMax": 117,
+            "IpSharedNum": 18,
+            "TPI": 1,
+            "CyclesNum": -1,
+            "Urls": [
+                { "Url": "http://http-srv/100K.dat",
+                "Repeatitions": 1,
+                "UrlName": "100Kdat",
+                "RequestType": "GET",
+                "FreshConnect": 1,
+                "UrlRandomRange": "",
+                "UrlRandomToken": "",
+                "CompletionTimer": 0,
+                "SleepTimer": 0,
+                "ClientLimitRateBytes": 135000
+                }
+            ]
+        }
+    },
+    "MiscProfiles": {
+        "general": {
+            "GtpTunnel": false,
+            "ResultsDir": "/tmp/performance"
+        }
+    },
+    "PingProfiles": {
+        "default": {
+            "Interval_sec": 3,
+            "PacketSize": 1300,
+            "Destination": "DGW"
+        }
+    },
+    "DstatProfiles": {
+        "default": {
+            "Interval_sec": 3
+        }
+    }
+}
+
